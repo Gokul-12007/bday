@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HARSHADHA'S BDAY 🎂</title>
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Bangers:wght@400&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFE600;
+    --pink: #FF2D78;
+    --cyan: #00F5FF;
+    --orange: #FF6B00;
+    --green: #00FF88;
+    --purple: #C800FF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0a0a;
+    font-family: 'Comic Neue', cursive;
+    overflow-x: hidden;
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><text y='28' font-size='28'>🎉</text></svg>"), auto;
+  }
+
+  /* CHAOS BACKGROUND */
+  .bg-chaos {
+    position: fixed; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse at 10% 20%, rgba(255,46,120,0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 90% 80%, rgba(0,245,255,0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(200,0,255,0.1) 0%, transparent 60%);
+    animation: bgPulse 3s ease-in-out infinite alternate;
+  }
+  @keyframes bgPulse {
+    from { filter: hue-rotate(0deg); }
+    to   { filter: hue-rotate(30deg); }
+  }
+
+  /* FLOATING EMOJIS */
+  .floaties { position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
+  .floatie {
+    position: absolute;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    animation: floatUp linear infinite;
+    opacity: 0.6;
+  }
+  @keyframes floatUp {
+    0%   { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+    10%  { opacity: 0.7; }
+    90%  { opacity: 0.7; }
+    100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
+  }
+
+  /* MAIN CONTAINER */
+  .container {
+    position: relative; z-index: 10;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+    text-align: center;
+  }
+
+  /* TOP CHAOS BANNER */
+  .chaos-banner {
+    background: repeating-linear-gradient(
+      45deg,
+      var(--yellow) 0px, var(--yellow) 20px,
+      #0a0a0a 20px, #0a0a0a 40px
+    );
+    padding: 0.6rem 2rem;
+    font-family: 'Bangers', cursive;
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    color: #0a0a0a;
+    margin-bottom: 2rem;
+    animation: bannerSlide 0.5s linear infinite;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  @keyframes bannerSlide {
+    0%   { background-position: 0 0; }
+    100% { background-position: 40px 0; }
+  }
+
+  /* TITLE */
+  .title-wrap { position: relative; margin-bottom: 0.5rem; }
+  .title-main {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(3.5rem, 12vw, 7rem);
+    line-height: 0.9;
+    letter-spacing: 4px;
+    color: var(--yellow);
+    text-shadow:
+      4px 4px 0 var(--pink),
+      8px 8px 0 var(--purple),
+      0 0 40px rgba(255,230,0,0.5);
+    animation: titleWobble 0.6s ease-in-out infinite alternate;
+  }
+  @keyframes titleWobble {
+    from { transform: rotate(-1.5deg) scale(1); }
+    to   { transform: rotate(1.5deg) scale(1.03); }
+  }
+
+  .title-sub {
+    font-family: 'Permanent Marker', cursive;
+    font-size: clamp(1.2rem, 5vw, 2.2rem);
+    color: var(--cyan);
+    text-shadow: 0 0 20px var(--cyan);
+    margin-bottom: 0.2rem;
+    animation: glow 1.5s ease-in-out infinite alternate;
+  }
+  @keyframes glow {
+    from { text-shadow: 0 0 10px var(--cyan), 0 0 20px var(--cyan); }
+    to   { text-shadow: 0 0 20px var(--cyan), 0 0 50px var(--cyan), 0 0 80px var(--cyan); }
+  }
+
+  /* CAKE */
+  .cake-section {
+    font-size: clamp(4rem, 15vw, 8rem);
+    margin: 1rem 0;
+    animation: cakeBounce 0.7s ease-in-out infinite alternate;
+    display: block;
+    filter: drop-shadow(0 0 20px rgba(255,107,0,0.8));
+  }
+  @keyframes cakeBounce {
+    from { transform: translateY(0) scale(1); }
+    to   { transform: translateY(-15px) scale(1.08); }
+  }
+
+  /* MESSAGE CARDS */
+  .msg-card {
+    border: 3px solid;
+    border-radius: 16px;
+    padding: 1.2rem 1.5rem;
+    margin: 1.2rem 0;
+    position: relative;
+    backdrop-filter: blur(6px);
+    background: rgba(10,10,10,0.7);
+  }
+  .msg-card::before {
+    content: attr(data-icon);
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    background: #0a0a0a;
+    padding: 0 8px;
+  }
+  .msg-card.pink  { border-color: var(--pink);  box-shadow: 0 0 20px rgba(255,45,120,0.3),  inset 0 0 30px rgba(255,45,120,0.05); }
+  .msg-card.cyan  { border-color: var(--cyan);  box-shadow: 0 0 20px rgba(0,245,255,0.3),  inset 0 0 30px rgba(0,245,255,0.05); }
+  .msg-card.green { border-color: var(--green); box-shadow: 0 0 20px rgba(0,255,136,0.3), inset 0 0 30px rgba(0,255,136,0.05); }
+  .msg-card.orange{ border-color: var(--orange); box-shadow: 0 0 20px rgba(255,107,0,0.3), inset 0 0 30px rgba(255,107,0,0.05); }
+
+  .msg-card p {
+    font-size: clamp(0.95rem, 3vw, 1.2rem);
+    line-height: 1.6;
+    color: #fff;
+  }
+  .msg-card p strong { font-size: 1.3em; }
+  .msg-card.pink  p strong { color: var(--pink); }
+  .msg-card.cyan  p strong { color: var(--cyan); }
+  .msg-card.green p strong { color: var(--green); }
+  .msg-card.orange p strong { color: var(--orange); }
+
+  .msg-card.chaos-card {
+    border-color: var(--purple);
+    box-shadow: 0 0 30px rgba(200,0,255,0.4);
+    transform: rotate(-1deg);
+    animation: cardShake 3s ease-in-out infinite;
+  }
+  @keyframes cardShake {
+    0%,100% { transform: rotate(-1deg); }
+    50%      { transform: rotate(1deg); }
+  }
+
+  /* BIG NAME REVEAL */
+  .name-reveal {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(2.5rem, 10vw, 5.5rem);
+    letter-spacing: 6px;
+    margin: 1.5rem 0 0.5rem;
+    background: linear-gradient(90deg, var(--pink), var(--yellow), var(--cyan), var(--green), var(--pink));
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: nameRainbow 2s linear infinite;
+  }
+  @keyframes nameRainbow {
+    from { background-position: 0% center; }
+    to   { background-position: 300% center; }
+  }
+
+  /* ROAST LIST */
+  .roast-list {
+    text-align: left;
+    list-style: none;
+    padding: 0;
+  }
+  .roast-list li {
+    padding: 0.5rem 0;
+    font-size: clamp(0.9rem, 2.8vw, 1.1rem);
+    color: #eee;
+    border-bottom: 1px dashed rgba(255,255,255,0.1);
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+  .roast-list li span.icon { font-size: 1.3em; flex-shrink: 0; }
+
+  /* BUTTON */
+  .chaos-btn {
+    display: inline-block;
+    margin: 2rem auto 0;
+    padding: 1rem 2.5rem;
+    font-family: 'Bangers', cursive;
+    font-size: clamp(1.4rem, 5vw, 2rem);
+    letter-spacing: 4px;
+    color: #0a0a0a;
+    background: var(--yellow);
+    border: none;
+    border-radius: 60px;
+    cursor: pointer;
+    box-shadow: 6px 6px 0 var(--pink), 12px 12px 0 var(--purple);
+    transition: all 0.1s;
+    animation: btnPop 1s ease-in-out infinite alternate;
+  }
+  .chaos-btn:hover {
+    transform: translate(-6px, -6px);
+    box-shadow: 12px 12px 0 var(--pink), 18px 18px 0 var(--purple);
+  }
+  .chaos-btn:active {
+    transform: translate(6px, 6px);
+    box-shadow: none;
+  }
+  @keyframes btnPop {
+    from { transform: scale(1); }
+    to   { transform: scale(1.04); }
+  }
+
+  /* CONFETTI BURST */
+  .confetti-container {
+    position: fixed; inset: 0; pointer-events: none; z-index: 100;
+  }
+  .conf {
+    position: absolute;
+    width: 10px; height: 14px;
+    opacity: 0;
+    border-radius: 2px;
+    animation: confFall 1.5s ease-in forwards;
+  }
+  @keyframes confFall {
+    0%   { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+  }
+
+  /* BOTTOM TICKER */
+  .ticker-wrap {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 50;
+    background: var(--pink);
+    overflow: hidden;
+    height: 2.5rem;
+    display: flex; align-items: center;
+  }
+  .ticker-content {
+    display: flex;
+    gap: 4rem;
+    white-space: nowrap;
+    animation: tickerRun 12s linear infinite;
+    font-family: 'Bangers', cursive;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    color: #fff;
+  }
+  @keyframes tickerRun {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* STAR BURST DECOR */
+  .starburst {
+    display: inline-block;
+    font-size: 2rem;
+    animation: spinStar 3s linear infinite;
+    filter: drop-shadow(0 0 8px var(--yellow));
+  }
+  @keyframes spinStar {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  .section-divider {
+    display: flex; align-items: center; gap: 1rem;
+    margin: 1.5rem 0;
+    color: rgba(255,255,255,0.3);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .section-divider::before, .section-divider::after {
+    content: ''; flex: 1;
+    height: 1px; background: rgba(255,255,255,0.15);
+  }
+</style>
+</head>
+<body>
+
+<!-- LOCK SCREEN -->
+<div id="lockScreen" style="display:none; position:fixed; inset:0; z-index:9999; background:#0a0a0a; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:2rem;">
+  <div style="font-size:clamp(3rem,15vw,7rem); animation: cakeBounce 0.7s ease-in-out infinite alternate;">🔒</div>
+  <div style="font-family:'Bangers',cursive; font-size:clamp(2rem,8vw,4.5rem); color:#FFE600; text-shadow: 3px 3px 0 #FF2D78; margin: 1rem 0 0.3rem; letter-spacing:3px;">NOT YET!</div>
+  <div style="font-family:'Permanent Marker',cursive; font-size:clamp(1rem,3.5vw,1.6rem); color:#00F5FF; margin-bottom:0.5rem;">Something BIG is coming on June 1st 🎂</div>
+  <div style="font-family:'Comic Neue',cursive; color:rgba(255,255,255,0.5); font-size:0.95rem; margin-bottom:2.5rem;">Patience is a virtue. You have none. We know.</div>
+
+  <div style="display:flex; gap:1.2rem; justify-content:center; flex-wrap:wrap;">
+    <div class="cd-box"><span class="cd-num" id="cd-days">00</span><span class="cd-label">Days</span></div>
+    <div class="cd-box"><span class="cd-num" id="cd-hours">00</span><span class="cd-label">Hours</span></div>
+    <div class="cd-box"><span class="cd-num" id="cd-mins">00</span><span class="cd-label">Minutes</span></div>
+    <div class="cd-box"><span class="cd-num" id="cd-secs">00</span><span class="cd-label">Seconds</span></div>
+  </div>
+
+  <div style="margin-top:2.5rem; font-family:'Bangers',cursive; font-size:1.1rem; letter-spacing:3px; color:rgba(255,255,255,0.25);">COME BACK WHEN THE CLOCK HITS ZERO ⬆️</div>
+</div>
+
+<style>
+  .cd-box {
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(255,230,0,0.4);
+    border-radius: 14px;
+    padding: 1rem 1.4rem;
+    min-width: 80px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(255,230,0,0.15);
+  }
+  .cd-num {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(2.2rem, 8vw, 3.5rem);
+    color: #FFE600;
+    display: block;
+    line-height: 1;
+  }
+  .cd-label {
+    font-family: 'Comic Neue', cursive;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 4px;
+    display: block;
+  }
+</style>
+
+<div class="bg-chaos"></div>
+
+<div id="mainContent">
+<!-- FLOATING EMOJIS -->
+<div class="floaties" id="floaties"></div>
+
+<!-- CONFETTI LAYER -->
+<div class="confetti-container" id="confettiContainer"></div>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-content">
+    🎂 HAPPY BIRTHDAY HARSHADHA 🎉 &nbsp;&nbsp; YOU'RE OFFICIALLY OLD NOW 👴 &nbsp;&nbsp; WE LOVE YOU THO 💖 &nbsp;&nbsp; STAY UNHINGED FOREVER 🌀 &nbsp;&nbsp; 🎂 HAPPY BIRTHDAY HARSHADHA 🎉 &nbsp;&nbsp; YOU'RE OFFICIALLY OLD NOW 👴 &nbsp;&nbsp; WE LOVE YOU THO 💖 &nbsp;&nbsp; STAY UNHINGED FOREVER 🌀
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- BANNER -->
+  <div class="chaos-banner">⚠️ WARNING: EXTREMELY UNHINGED BIRTHDAY MESSAGE AHEAD ⚠️</div>
+
+  <!-- TITLE -->
+  <div class="title-wrap">
+    <div class="title-main">HAPPY<br>BIRTHDAY</div>
+  </div>
+  <div class="title-sub">to the ONE, the ONLY, the CHAOTIC —</div>
+
+  <div class="name-reveal">HARSHADHA 🎊</div>
+
+  <!-- CAKE -->
+  <span class="cake-section">🎂</span>
+
+  <div class="section-divider">✦ official roast begins ✦</div>
+
+  <!-- CARD 1 -->
+  <div class="msg-card pink" data-icon="🎤">
+    <p>
+      Another year older. Another year of convincing everyone you have your life together.
+      <strong>We know the truth, Harshadha. We all know.</strong> 🙂
+    </p>
+  </div>
+
+  <!-- CARD 2 - ROAST LIST -->
+  <div class="msg-card cyan" data-icon="📋">
+    <p style="margin-bottom:0.8rem;"><strong>A birthday checklist for you:</strong></p>
+    <ul class="roast-list">
+      <li><span class="icon">✅</span> Still bestie. Still chaotic. Still somehow functioning.</li>
+      <li><span class="icon">✅</span> Successfully survived another year without a villain arc (debatable).</li>
+      <li><span class="icon">✅</span> Unlocked a new age. Stats unchanged. Energy bar still at 200%.</li>
+      <li><span class="icon">✅</span> Phone battery: 3%. Birthday spirit: 3000%.</li>
+      <li><span class="icon">❌</span> Found stability. (Pending. ETA: never.)</li>
+    </ul>
+  </div>
+
+  <!-- CARD 3 -->
+  <div class="msg-card chaos-card" data-icon="🌀" style="border-color: var(--purple);">
+    <p>
+      Scientists have studied your birthday energy and concluded:
+      <strong>"It is simply too much. We give up."</strong><br><br>
+      Happy Birthday, you absolute force of nature. 🌪️
+    </p>
+  </div>
+
+  <!-- CARD 4 -->
+  <div class="msg-card green" data-icon="💌">
+    <p>
+      Okay real talk — the world is genuinely a better, louder, funnier, more chaotic place because you're in it.
+      <strong>Don't ever change. (We couldn't stop you anyway.)</strong> 💚
+    </p>
+  </div>
+
+  <!-- CARD 5 -->
+  <div class="msg-card orange" data-icon="🔮">
+    <p>
+      This year's forecast for Harshadha:
+      <strong>100% chance of drama, scattered moments of genius,
+      zero chance of boring anyone, and absolutely
+      unhinged vibes till midnight.</strong> 🎆
+    </p>
+  </div>
+
+  <div class="section-divider">✦ grand finale ✦</div>
+
+  <!-- FINAL MESSAGE -->
+  <div style="padding: 1.5rem; border-radius: 20px; background: linear-gradient(135deg, rgba(255,230,0,0.08), rgba(255,45,120,0.08)); border: 2px solid rgba(255,255,255,0.1);">
+    <p style="font-size: clamp(1.1rem, 3.5vw, 1.5rem); color: #fff; line-height: 1.8;">
+      <span class="starburst">🌟</span>
+      &nbsp; Here's to <strong style="color:var(--yellow)">YOU</strong>, Harshadha —
+      the person who makes every room more alive and every dull moment impossible.
+      <br><br>
+      <strong style="color:var(--pink)">May your day be as extra as you are. 🎉</strong>
+      &nbsp; <span class="starburst">🌟</span>
+    </p>
+  </div>
+
+  <!-- BUTTON -->
+  <button class="chaos-btn" onclick="triggerChaos()">
+    🎆 UNLEASH CHAOS 🎆
+  </button>
+
+</div><!-- end mainContent -->
+
+<script>
+  // COUNTDOWN LOCK
+  const UNLOCK_DATE = new Date('2026-06-01T00:00:00');
+  const lockScreen = document.getElementById('lockScreen');
+  const mainContent = document.getElementById('mainContent');
+
+  function pad(n) { return String(n).padStart(2,'0'); }
+
+  function checkUnlock() {
+    const now = new Date();
+    const diff = UNLOCK_DATE - now;
+
+    if (diff <= 0) {
+      lockScreen.style.display = 'none';
+      mainContent.style.display = 'block';
+      return;
+    }
+
+    lockScreen.style.display = 'flex';
+    mainContent.style.display = 'none';
+
+    const days  = Math.floor(diff / (1000*60*60*24));
+    const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+    const mins  = Math.floor((diff % (1000*60*60)) / (1000*60));
+    const secs  = Math.floor((diff % (1000*60)) / 1000);
+
+    document.getElementById('cd-days').textContent  = pad(days);
+    document.getElementById('cd-hours').textContent = pad(hours);
+    document.getElementById('cd-mins').textContent  = pad(mins);
+    document.getElementById('cd-secs').textContent  = pad(secs);
+  }
+
+  checkUnlock();
+  setInterval(checkUnlock, 1000);
+
+  // FLOATING EMOJIS
+  const emojiList = ['🎂','🎉','🎊','🥳','✨','💖','🌟','🎈','🎁','🌀','💥','🎆','🍰','👑','💃'];
+  const floaties = document.getElementById('floaties');
+
+  function spawnFloatie() {
+    const el = document.createElement('div');
+    el.className = 'floatie';
+    el.textContent = emojiList[Math.floor(Math.random() * emojiList.length)];
+    el.style.left = Math.random() * 100 + 'vw';
+    el.style.animationDuration = (4 + Math.random() * 6) + 's';
+    el.style.animationDelay = (Math.random() * 2) + 's';
+    floaties.appendChild(el);
+    setTimeout(() => el.remove(), 12000);
+  }
+  setInterval(spawnFloatie, 600);
+  for (let i = 0; i < 8; i++) spawnFloatie();
+
+  // CONFETTI BURST
+  const colors = ['#FFE600','#FF2D78','#00F5FF','#FF6B00','#00FF88','#C800FF','#fff'];
+  function triggerChaos() {
+    const container = document.getElementById('confettiContainer');
+    for (let i = 0; i < 120; i++) {
+      const el = document.createElement('div');
+      el.className = 'conf';
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.top = Math.random() * 30 + '%';
+      el.style.background = colors[Math.floor(Math.random() * colors.length)];
+      el.style.transform = `rotate(${Math.random()*360}deg)`;
+      el.style.animationDelay = (Math.random() * 0.8) + 's';
+      el.style.animationDuration = (1 + Math.random() * 1.5) + 's';
+      el.style.width = (6 + Math.random() * 10) + 'px';
+      el.style.height = (8 + Math.random() * 16) + 'px';
+      container.appendChild(el);
+      setTimeout(() => el.remove(), 3000);
+    }
+
+    // Chaos flash
+    document.body.style.animation = 'none';
+    let flashes = 0;
+    const flashInterval = setInterval(() => {
+      document.body.style.background = colors[Math.floor(Math.random() * colors.length)];
+      flashes++;
+      if (flashes > 6) {
+        clearInterval(flashInterval);
+        document.body.style.background = '#0a0a0a';
+      }
+    }, 80);
+  }
+</script>
+</body>
+</html>
